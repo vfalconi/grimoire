@@ -1,0 +1,14 @@
+#!/bin/bash
+
+function mkd() {
+	mkdir -p "$@" && cd "$_";
+}
+
+function unpush() {
+	git push origin --delete "$1";
+	echo "Unsetting branch.${1}.remote";
+	git config --unset branch."$1".remote;
+	echo "Unsetting branch.${1}.merge";
+	git config --unset branch."$1".merge
+	echo "${1} has been unpushed";
+}

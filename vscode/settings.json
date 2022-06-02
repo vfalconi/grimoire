@@ -1,0 +1,76 @@
+{
+	"workbench.colorTheme": "Dracula",
+	"editor.fontFamily": "Fira Code",
+	"editor.fontSize": 13,
+	"editor.fontLigatures": true,
+	"editor.letterSpacing": 0.5,
+	"editor.lineHeight": 30,
+	"explorer.openEditors.visible": 0,
+	"editor.wrappingIndent": "indent",
+	"editor.tabSize": 2,
+	"files.insertFinalNewline": true,
+	"files.trimTrailingWhitespace": true,
+	"editor.roundedSelection": false,
+	"editor.minimap.enabled": false,
+	"editor.occurrencesHighlight": false,
+	"editor.selectionHighlight": false,
+	"editor.matchBrackets": "never",
+	"editor.detectIndentation": false,
+	"editor.scrollBeyondLastLine": true,
+	"workbench.tips.enabled": false,
+  "editor.hover.enabled": false,
+  "workbench.startupEditor": "none",
+  "workbench.iconTheme": "material-icon-theme",
+	"editor.insertSpaces": false,
+	"extensions.ignoreRecommendations": true,
+	"git.enabled": false,
+	"files.eol": "\n",
+	"emmet.includeLanguages": {
+		"twig": "html",
+		"nunjucks": "html"
+	},
+	"editor.colorDecorators": false,
+	"typescript.validate.enable": false,
+	"editor.bracketPairColorization.enabled": true,
+	"editor.guides.bracketPairs": "active",
+	"editor.unicodeHighlight.ambiguousCharacters": false,
+	"todohighlight.keywords": [
+		{
+			"text": "REVIEW:",
+			"color": "#F012BE",
+			"isWholeLine": false,
+		},
+		{
+			"text": "NOTE:",
+			"color": "#2ECC40",
+			"overviewRulerColor": "grey"
+		},
+		{
+			"text": "HACK:",
+			"color": "#FF851B",
+		},
+		{
+			"text": "TODO:",
+			"color": "#FFDC00",
+			"backgroundColor": "transparent",
+		}
+	],
+	"todohighlight.defaultStyle": {
+		"cursor": "pointer",
+		"isWholeLine": false,
+		"backgroundColor": "transparent"
+	},
+	"todohighlight.exclude": [
+		"**/node_modules/**",
+		"**/bower_components/**",
+		"**/dist/**",
+		"**/build/**",
+		"**/.vscode/**",
+		"**/.github/**",
+		"**/_output/**",
+		"**/*.min.*",
+		"**/*.map",
+		"**/.next/**",
+		"**/settings.json"
+	],
+}
