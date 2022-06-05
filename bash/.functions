@@ -12,3 +12,7 @@ function unpush() {
 	git config --unset branch."$1".merge
 	echo "${1} has been unpushed";
 }
+
+checksum() {
+	echo -n "$2 $1" | sha1sum -c -;
+}
