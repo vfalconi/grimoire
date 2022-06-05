@@ -1,9 +1,11 @@
 #!/bin/bash
 
+# makes a directory and immediately sets it to cd
 function mkd() {
 	mkdir -p "$@" && cd "$_";
 }
 
+# removes a git branch from origin
 function unpush() {
 	git push origin --delete "$1";
 	echo "Unsetting branch.${1}.remote";
@@ -13,14 +15,17 @@ function unpush() {
 	echo "${1} has been unpushed";
 }
 
+# Expects a file name ($1) and a known sha1 checksum ($2) and returns whether the hash is verified
 checksum() {
 	echo -n "$2 $1" | sha1sum -c -;
 }
 
+# Takes a string and returns it in kebab-case (lowercase, with spaces replaced by dashes)
 kebab() {
 	echo "$@" | awk '{gsub(" ", "-", $0); toLower; print}';
 }
 
+# Renames a file ($1) using kebab case
 kname() {
 	mv "$1" $(kebab $1);
 }
