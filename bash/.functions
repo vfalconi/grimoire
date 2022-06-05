@@ -16,3 +16,11 @@ function unpush() {
 checksum() {
 	echo -n "$2 $1" | sha1sum -c -;
 }
+
+kebab() {
+	echo "$@" | awk '{print tolower($0)}' | awk '{gsub(" ", "-", $0); print}';
+}
+
+kname() {
+	mv "$1" $(kebab $1);
+}
