@@ -29,3 +29,11 @@ kebab() {
 kname() {
 	mv "$1" $(kebab $1);
 }
+
+# ** ---------------------------------------------------------------------------
+# Docker stuff
+# ** ---------------------------------------------------------------------------
+
+remove_all_dockers() {
+	apt remove docker docker-engine docker.io containerd runc
+}
