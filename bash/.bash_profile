@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Get rid of that annoying message in MacOS about zsh being the default
 export BASH_SILENCE_DEPRECATION_WARNING=1
 

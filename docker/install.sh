@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # https://docs.docker.com/engine/install/ubuntu/#uninstall-old-versions
 apt-get remove docker docker-engine docker.io containerd runc
 

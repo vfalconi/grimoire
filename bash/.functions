@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # makes a directory and immediately sets it to cd
 function mkd() {
