@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  node_exporter:
+    image: quay.io/prometheus/node-exporter:latest
+    container_name: node_exporter
+    command:
+      - '--path.rootfs=/host'
+    network_mode: host
+    pid: host
+    restart: unless-stopped
+    volumes:
+      - '/:/host:ro,rslave'
+  portainer:
+    image: portainer/portainer-ce:latest
+    ports:
+    - '8000:8000'
+    - '9443:9443'
+    container_name: portainer
+    restart: always
+    networks:
+      - internal-network
+    volumes:
+     - /var/run/docker.sock:/var/run/docker.sock
+     - /portainer/container_data/portainer:/data
+  nginxpm:
+    image: 'jc21/nginx-proxy-manager:latest'
+    restart: unless-stopped
+    container_name: nginx-proxy-manager
+    networks:
+      - internal-network
+    ports:
+      - '80:80'
+      - '443:443'
+      - '81:81'
+    volumes:
+      - /portainer/container_data/nginx-proxy-manager/data:/data
+      - /portainer/container_data/nginx-proxy-manager/letsencrypt:/etc/letsencrypt
+
+networks:
+  internal-network:
