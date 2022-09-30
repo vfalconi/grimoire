@@ -20,3 +20,5 @@ fi
 alias please='sudo $(history -p !!)'
 alias dammit='sudo $(history -p !!)'
 
+# apply craft config via CLI to avoid YAML annoyances
+alias apply_craft_config='php craft project-config/apply'
