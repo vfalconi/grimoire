@@ -2,4 +2,4 @@
 
 apt update
 
-apt install --no-install-recommends php8.1
+apt install -y --no-install-recommends php8.1
