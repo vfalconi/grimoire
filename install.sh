@@ -1,4 +1,24 @@
-#!/usr/bin/env bash
+#!/bin/bash
+
+# "           ______              "
+# "       .d$$$******$$$$c.        "
+# "    .d$P"            "$$c      "
+# "   $$$$$.           .$$$*$.    "
+# " .$$ 4$L*$$.     .$$Pd$  '$b   "
+# " $F   *$. "$$e.e$$" 4$F   ^$b  "
+# "d$     $$   z$$$e   $$     '$. "
+# "$P     `$L$$P` ''$$d$'      $$ "
+# "$$     e$$F       4$$b.     $$ "
+# "$b  .$$" $$      .$$ "4$b.  $$ "
+# "$$e$P"    $b     d$`    "$$c$F "
+# "'$P$$$$$$$$$$$$$$$$$$$$$$$$$$  "
+# " '$c.      4$.  $$       .$$   "
+# "  ^$$.      $$ d$'      d$P    "
+# "    "$$c.   `$b$F    .d$P"     "
+# "      `4$$$c.$$$..e$$P"        "
+# "          `^^^^^^^`"
+
+echo -e "$(cat etc/startup-message)"
 
 cd "$(dirname "${BASH_SOURCE}")";
 
@@ -10,7 +30,6 @@ function copyFiles() {
 	rsync --exclude ".DS_Store" \
 		-avh --no-perms . ~;
 	cd -;
-	source ~/.bash_profile;
 }
 
 force=0;
@@ -35,3 +54,5 @@ else
 	fi;
 fi;
 unset copyFiles;
+
+source ~/.bash_profile;

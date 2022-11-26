@@ -1,3 +1,37 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-PS1='\[\e[0;38;5;45m\]\u\[\e[0;38;5;33m\]@\[\e[0;38;5;45m\]\H \[\e[0m\]in \[\e[0;38;5;159m\]\w\n\[\e[0;97m\]\$ \[\e[0m\]'
+read_git_branch() {
+	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
+}
+
+is_git() {
+	read_git_branch | wc -c
+}
+
+render_git()  {
+	if [ $(is_git) -gt 0 ]; then
+		echo "<$(read_git_branch)> "
+	fi
+}
+
+HOST_FG="0"
+HOST_BG="142"
+HOST_SCHEME="\e[38;5;${HOST_FG}m\e[48;5;${HOST_BG}m"
+HOST_TRANSITION="\e[38;5;${HOST_BG}m"
+WD_FG="0"
+WD_BG="106"
+WD_SCHEME="\e[38;5;${WD_FG}m\e[48;5;${WD_BG}m"
+WD_TRANSITION="\e[38;5;${WD_BG}m\e[48;5;${HOST_BG}m"
+COLORSTOP="\e[0m"
+PROMPT_FG="70"
+PROMPT_SCHEME="\e[38;5;${PROMPT_FG}m"
+ENDING_TRANSITION="\e[38;5;${WD_BG}m"
+
+PS1="\[${HOST_TRANSITION}\]░▒▓"
+PS1+="\[${HOST_SCHEME}\] \u@\H "
+PS1+="\[${WD_TRANSITION}\]░▒▓"
+PS1+="\[${WD_SCHEME}\] \w \$(render_git)\[${COLORSTOP}\]"
+PS1+="\[${ENDING_TRANSITION}\]▓▒░\[${COLORSTOP}\]\n"
+PS1+="\[${PROMPT_SCHEME}\]$\[${COLORSTOP}\] "
+
+export PS1
