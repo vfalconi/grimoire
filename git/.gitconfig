@@ -1,5 +1,3 @@
 [user]
         email = vince@tattooed.dev
         name = vince falconi
-[core]
-        autocrlf = input eol=lf

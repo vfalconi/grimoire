@@ -29,7 +29,9 @@ function copyFiles() {
 	cd bash;
 	rsync --exclude ".DS_Store" \
 		-avh --no-perms . ~;
-	cd -;
+	cd ../git;
+	rsync --exclude ".DS_Store" \
+		-avh --no-perms . ~;
 }
 
 force=0;
