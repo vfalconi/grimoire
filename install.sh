@@ -18,20 +18,16 @@
 # "      `4$$$c.$$$..e$$P"        "
 # "          `^^^^^^^`"
 
-echo -e "$(cat etc/startup-message)"
-
-cd "$(dirname "${BASH_SOURCE}")";
+echo -e "$(cat ~/grimoire/etc/startup-message)"
 
 function copyFiles() {
 	if [ "$update" -eq 1 ]; then
-		git pull origin canon
+		git -C ~/grimoire pull origin canon
 	fi
-	cd bash;
 	rsync --exclude ".DS_Store" \
-		-avh --no-perms . ~;
-	cd ../git;
+		-avh --no-perms ~/grimoire/bash ~;
 	rsync --exclude ".DS_Store" \
-		-avh --no-perms . ~;
+		-avh --no-perms -C ~/grimoire/git ~;
 }
 
 force=0;
