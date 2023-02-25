@@ -25,9 +25,9 @@ function copyFiles() {
 		git -C ~/grimoire pull origin canon
 	fi
 	rsync --exclude ".DS_Store" \
-		-avh --no-perms ~/grimoire/bash ~;
+		-avh --no-perms ~/grimoire/bash/* ~;
 	rsync --exclude ".DS_Store" \
-		-avh --no-perms -C ~/grimoire/git ~;
+		-avh --no-perms -C ~/grimoire/git/* ~;
 }
 
 force=0;
