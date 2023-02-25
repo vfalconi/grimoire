@@ -24,10 +24,10 @@ function copyFiles() {
 	if [ "$update" -eq 1 ]; then
 		git -C ~/grimoire pull origin canon
 	fi
-	rsync --exclude ".DS_Store" \
-		-avh --no-perms ~/grimoire/bash/* ~;
-	rsync --exclude ".DS_Store" \
-		-avh --no-perms -C ~/grimoire/git/* ~;
+	rsync --exclude ".DS_Store" --include="*" \
+		-avh --no-perms ~/grimoire/bash ~;
+	rsync --exclude ".DS_Store" --include="*" \
+		-avh --no-perms -C ~/grimoire/git ~;
 }
 
 force=0;
