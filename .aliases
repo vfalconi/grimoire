@@ -7,6 +7,7 @@ alias ....="cd ../../.."
 alias -- -="cd -"
 
 alias ll="exa --long --all --git"
+alias bat="batcat"
 
 # For when you forget to sudo
 alias please='sudo $(history -p !!)'

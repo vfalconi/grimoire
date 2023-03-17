@@ -18,7 +18,16 @@ then
 	mkdir "${BIN_PATH}"
 fi
 
+# update
+sudo apt-get -qq update
+
+# install bat
+# docs: https://github.com/sharkdp/bat
+printf '[@] ...installing bat for better file viewing\n'
+sudo apt-get --assume-yes -qq install bat
+
 # install exa
+# docs: https://the.exa.website/docs
 printf '[@] ...installing exa for better file listing\n'
 wget -q --output-document="${TMP_PATH}/exa.zip" https://github.com/ogham/exa/releases/download/v0.10.1/exa-linux-x86_64-v0.10.1.zip
 unzip -qo "${TMP_PATH}/exa.zip" -d "${TMP_PATH}/exa"
