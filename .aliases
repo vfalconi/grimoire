@@ -7,6 +7,7 @@ alias ....="cd ../../.."
 alias -- -="cd -"
 
 alias ll="exa --long --all --git"
+alias llm="exa --long --all --git --tree --level=2"
 alias bat="batcat"
 
 # For when you forget to sudo
