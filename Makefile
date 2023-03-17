@@ -17,6 +17,5 @@
 # "          `^^^^^^^`"
 
 install:
-	bash lib/message-startup
-	bash lib/install_dotfiles
-	bash lib/install_tools
+	@echo "Installing"
+	. lib/install
