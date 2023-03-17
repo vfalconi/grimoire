@@ -18,7 +18,11 @@
 # "      `4$$$c.$$$..e$$P"        "
 # "          `^^^^^^^`"
 
-rsync --exclude ".DS_Store" -qavh --no-perms bash/ ${HOME}
-rsync --exclude ".DS_Store" -qavh --no-perms git/ ${HOME}
+rsync --exclude ".git/" \
+		--exclude ".DS_Store" \
+		--exclude ".vscode" \
+		--exclude "Makefile" \
+		--exclude "README.md" \
+		-avh --no-perms . ~;
 
 source ${HOME}/.bash_profile
