@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if [ ! -d "/tmp/grimoire" ]; then
+	mkdir /tmp/grimoire
+fi
+
 bash ./lib/message-startup
 bash ./lib/install_dotfiles
 bash ./lib/install_tools

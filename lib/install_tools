@@ -2,27 +2,30 @@
 
 printf '<!===== Installing tools... ==========================!>\n'
 
+TMP_PATH=/tmp/grimoire/tools
 MAN_PATH=${HOME}/man/
 BIN_PATH=${HOME}/bin/
 
+mkdir "${TMP_PATH}"
+
 if [ ! -d "${MAN_PATH}" ];
 then
-	mkdir ${MAN_PATH}
+	mkdir "${MAN_PATH}"
 fi
 
 if [ ! -d "${BIN_PATH}" ];
 then
-	mkdir ${BIN_PATH}
+	mkdir "${BIN_PATH}"
 fi
 
 # install exa
 printf '[@] ...installing exa for better file listing\n'
-wget -q --output-document=/tmp/grimoire-tools-exa.zip https://github.com/ogham/exa/releases/download/v0.10.1/exa-linux-x86_64-v0.10.1.zip
-unzip -qo /tmp/grimoire-tools-exa.zip -d /tmp/grimoire-tools-exa
-rsync -qavh --no-perms /tmp/grimoire-tools-exa/bin/exa ${BIN_PATH}
-gzip -r /tmp/grimoire-tools-exa/man > ${MAN_PATH}/exa.gz
-sudo cp /tmp/grimoire-tools-exa/completions/exa.bash /etc/bash_completion.d
+wget -q --output-document="${TMP_PATH}/exa.zip" https://github.com/ogham/exa/releases/download/v0.10.1/exa-linux-x86_64-v0.10.1.zip
+unzip -qo "${TMP_PATH}/exa.zip" -d "${TMP_PATH}/exa"
+rsync -qavh --no-perms "${TMP_PATH}/exa/bin/exa" "${BIN_PATH}"
+gzip -r "${TMP_PATH}/exa/man" > "${MAN_PATH}/exa.gz"
+sudo cp "${TMP_PATH}/exa/completions/exa.bash" /etc/bash_completion.d
 
 # cleanup
 printf '<!===== Cleaning up after ourselves ==================!>\n'
-rm -r /tmp/grimoire-tools-*
+rm -r /tmp/grimoire/tools
