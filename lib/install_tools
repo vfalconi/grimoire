@@ -21,7 +21,7 @@ wget -q --output-document=/tmp/grimoire-tools-exa.zip https://github.com/ogham/e
 unzip -qo /tmp/grimoire-tools-exa.zip -d /tmp/grimoire-tools-exa
 rsync -qavh --no-perms /tmp/grimoire-tools-exa/bin/exa ${BIN_PATH}
 gzip -r /tmp/grimoire-tools-exa/man > ${MAN_PATH}/exa.gz
-sudo cp /tmp/grimoire-tools-exa/completions/* /etc/bash_completion.d
+sudo cp /tmp/grimoire-tools-exa/completions/exa.bash /etc/bash_completion.d
 
 # cleanup
 printf '<!===== Cleaning up after ourselves ==================!>\n'
