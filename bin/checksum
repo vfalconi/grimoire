@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Expects a file name ($1) and a known sha1 checksum ($2) and returns whether the hash is verified
+
+echo -n "$2 $1" | sha1sum -c -;

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Takes a string and returns it in kebab-case (lowercase, with spaces replaced by dashes)
+
+echo "$@" | awk '{gsub(" ", "-", $0); toLower; print}';

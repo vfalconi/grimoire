@@ -1,0 +1,10 @@
+#!/bin/bash
+
+BRANCH="$1"
+
+git push origin --delete "$BRANCH";
+echo "-> Unsetting branch.${BRANCH}.remote";
+git config --unset branch."$BRANCH".remote;
+echo "-> Unsetting branch.${BRANCH}.merge";
+git config --unset branch."$BRANCH".merge
+echo "-> ${BRANCH} has been unpushed";
