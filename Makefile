@@ -15,7 +15,18 @@
 # "    "$$c.   `$b$F    .d$P"     "
 # "      `4$$$c.$$$..e$$P"        "
 # "          `^^^^^^^`"
+SELF := $(lastword $(MAKEFILE_LIST))
+
+default:
+	@$(MAKE) -f $(SELF) --quiet install
 
 install:
-	@echo "Installing"
-	. lib/install
+	bash ./bin/metastatus "Running installer"
+	bash ./bin/install
+	@$(MAKE) -f $(SELF) clean
+	bash ./bin/metastatus "Grimoire install complete"
+
+clean:
+	bash ./bin/metastatus "Running cleaner"
+	bash ./bin/clean
+	bash ./bin/metastatus "Cleanup complete"

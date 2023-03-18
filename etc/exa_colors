@@ -1,0 +1,50 @@
+#!/bin/bash
+
+# permissions
+EXA_COLORS="ur=0;38;5;252"               # User +r bit
+EXA_COLORS="uw=0;38;5;252:${EXA_COLORS}" # User +w bit
+EXA_COLORS="ux=0;38;5;252:${EXA_COLORS}" # User +x bit (files)
+EXA_COLORS="ue=0;38;5;252:${EXA_COLORS}" # User +x bit (file types)
+EXA_COLORS="gr=0;38;5;252:${EXA_COLORS}" # Group +r bit
+EXA_COLORS="gw=0;38;5;252:${EXA_COLORS}" # Group +w bit
+EXA_COLORS="gx=0;38;5;252:${EXA_COLORS}" # Group +x bit
+EXA_COLORS="tr=0;38;5;252:${EXA_COLORS}" # Others +r bit
+EXA_COLORS="tw=0;38;5;252:${EXA_COLORS}" # Others +w bit
+EXA_COLORS="tx=0;38;5;252:${EXA_COLORS}" # Others +x bit
+EXA_COLORS="su=0;38;5;252:${EXA_COLORS}" # Higher bits (files)
+EXA_COLORS="sf=0;38;5;252:${EXA_COLORS}" # Higher bits (other types)
+EXA_COLORS="xa=0;38;5;252:${EXA_COLORS}" # Extended attribute marker
+
+# file sizes
+EXA_COLORS="sn=0;38;5;252:${EXA_COLORS}" # Size numbers
+EXA_COLORS="sb=0;36:${EXA_COLORS}" # Size unit
+EXA_COLORS="df=0;38;5;252:${EXA_COLORS}" # Major device ID
+EXA_COLORS="ds=0;38;5;252:${EXA_COLORS}" # Minor device ID
+
+# owners and groups
+EXA_COLORS="uu=1;36:${EXA_COLORS}" # A user that’s you
+EXA_COLORS="un=0;36:${EXA_COLORS}" # A user that’s not
+EXA_COLORS="gu=1;36:${EXA_COLORS}" # A group with you in it
+EXA_COLORS="gn=0;36:${EXA_COLORS}" # A group without you
+
+# hard links
+EXA_COLORS="lc=0;36:${EXA_COLORS}" # number of links
+EXA_COLORS="lm=0;36:${EXA_COLORS}" # multi-link file
+
+# git
+EXA_COLORS="ga=1;38;5;40:${EXA_COLORS}" # New
+EXA_COLORS="gm=1;38;5;220:${EXA_COLORS}" # Modified
+EXA_COLORS="gd=1;38;5;196:${EXA_COLORS}" # Deleted
+EXA_COLORS="gv=1;38;5;207:${EXA_COLORS}" # Renamed
+EXA_COLORS="gt=1;38;5;27:${EXA_COLORS}" # Type change
+
+# details and metadata
+EXA_COLORS="xx=0;38;5;123:${EXA_COLORS}" # Punctuation
+EXA_COLORS="da=0;38;5;252:${EXA_COLORS}" # Timestamp
+EXA_COLORS="in=0;38;5;252:${EXA_COLORS}" # File inode
+EXA_COLORS="bl=0;38;5;252:${EXA_COLORS}" # Number of blocks
+EXA_COLORS="hd=1;38;5;252:${EXA_COLORS}" # Table header row
+EXA_COLORS="lp=1;38;5;123:${EXA_COLORS}" # Symlink path
+EXA_COLORS="cc=1;38;5;252:${EXA_COLORS}" # Control character
+
+export EXA_COLORS

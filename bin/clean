@@ -1,0 +1,5 @@
+#!/bin/bash
+
+bash ./bin/status 'Cleaning up tmp files'
+
+rm -vrf /tmp/grimoire/*

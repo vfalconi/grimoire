@@ -9,6 +9,9 @@ for file in ~/.{functions,aliases,bash_prompt}; do
 done;
 unset file;
 
+source "${HOME}/bin/lscolors.sh"
+source "${HOME}/etc/exa_colors"
+
 export NVM_DIR="$HOME/.nvm"
 export PATH=$PATH:"${HOME}/bin"
 export MANPATH=$MANPATH:"${HOME}/man"

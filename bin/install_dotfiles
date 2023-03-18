@@ -18,11 +18,13 @@
 # "      `4$$$c.$$$..e$$P"        "
 # "          `^^^^^^^`"
 
+bash ./bin/status 'Installing dotFiles'
+
 rsync --exclude ".git/" \
 		--exclude ".DS_Store" \
 		--exclude ".vscode" \
 		--exclude "Makefile" \
 		--exclude "README.md" \
-		-avh --no-perms . ~;
+		-avh . ${HOME};
 
 source ${HOME}/.bash_profile
