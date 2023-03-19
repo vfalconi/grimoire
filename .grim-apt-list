@@ -1,3 +1,4 @@
 # better file cat
 bat
 ripgrep
+shellcheck

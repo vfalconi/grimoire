@@ -1,5 +1,5 @@
 #!/bin/bash
 
-printf '   \e[38;5;160m:\e[38;5;124m:\e[38;5;88m:\e[38;5;52m: \e[38;5;15m'
-printf "$@"
-printf '\e[0m\n'
+printf "   \e[38;5;160m:\e[38;5;124m:\e[38;5;88m:\e[38;5;52m: \e[38;5;15m"
+printf "%s" "$@"
+printf "\e[0m\n"

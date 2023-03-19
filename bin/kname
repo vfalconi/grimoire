@@ -1,4 +1,4 @@
 #!/bin/bash
 
 # Renames a file ($1) using kebab case
-mv "$1" $(./kebab $1);
+mv "$1" "$(./kebab "$1")";
