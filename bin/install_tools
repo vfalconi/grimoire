@@ -5,18 +5,22 @@ bash ./bin/status 'Installing tools...'
 TMP_PATH="/tmp/grimoire/tools"
 MAN_PATH="$HOME/man"
 BIN_PATH="$HOME/bin"
+# reads the contents of `grim-installs`, concats to a single, space-delimited line, passes to awk to trim whitespace
+APT_INSTALLS="$(cat .grim-apt-list | sed -e 's/#.*//' | tr -s "\n" " " | awk '{$1=$1};1')"
 
 mkdir --verbose "$TMP_PATH" 2> /dev/null
 mkdir --verbose "$MAN_PATH" 2> /dev/null
 mkdir --verbose "$BIN_PATH" 2> /dev/null
 
-# update
+# apt packages
+# see .grim-apt-list for details
+bash ./bin/substatus 'installing apt packages'
 sudo apt-get update
+sudo apt-get --assume-yes install ${APT_INSTALLS}
 
 # install bat
 # docs: https://github.com/sharkdp/bat
 bash ./bin/substatus 'installing bat for better file viewing'
-sudo apt-get --assume-yes install bat
 ln --verbose --symbolic --force /usr/bin/batcat "$BIN_PATH/bat"
 
 # install exa

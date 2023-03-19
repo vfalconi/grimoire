@@ -1,0 +1,8 @@
+.git/
+.DS_Store
+.vscode
+Makefile
+README.md
+bin/install
+bin/install_dotfiles
+bin/install_tools

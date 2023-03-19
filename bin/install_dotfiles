@@ -20,11 +20,6 @@
 
 bash ./bin/status 'Installing dotFiles'
 
-rsync --exclude ".git/" \
-		--exclude ".DS_Store" \
-		--exclude ".vscode" \
-		--exclude "Makefile" \
-		--exclude "README.md" \
-		-avh . ${HOME};
+rsync --exclude-from="./.grimignore" -avh . "$HOME";
 
 source ${HOME}/.bash_profile

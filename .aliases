@@ -9,6 +9,9 @@ alias -- -="cd -"
 alias ll="exa --long --all --git"
 alias llm="ll --tree --level=2"
 
+alias bgrep="batgrep"
+alias bdiff="git diff --name-only --relative --diff-filter=d | xargs bat --diff"
+
 # For when you forget to sudo
 alias please='sudo $(history -p !!)'
 alias dammit='sudo $(history -p !!)'
