@@ -1,8 +1,5 @@
 #!/bin/bash
 
-git push origin --delete "$1";
-echo "-> Unsetting branch.$1.remote";
-git config --unset branch."$1".remote;
-echo "-> Unsetting branch.$1.merge";
-git config --unset branch."$1".merge
-echo "-> $1 has been unpushed";
+git push --verbose origin --delete "$1";
+git config --verbose --unset branch."$1".remote;
+git config --verbose --unset branch."$1".merge

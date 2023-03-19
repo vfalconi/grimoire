@@ -1,8 +1,6 @@
 #!/bin/bash
 
-if [ ! -d "/tmp/grimoire" ]; then
-	mkdir /tmp/grimoire
-fi
+mkdir --verbose /tmp/grimoire 2> /dev/null
 
 bash ./etc/message/startup
 bash ./bin/install_tools

@@ -6,29 +6,29 @@ TMP_PATH="/tmp/grimoire/tools"
 MAN_PATH="$HOME/man"
 BIN_PATH="$HOME/bin"
 
-mkdir "$TMP_PATH" 2> /dev/null
-mkdir "$MAN_PATH" 2> /dev/null
-mkdir "$BIN_PATH" 2> /dev/null
+mkdir --verbose "$TMP_PATH" 2> /dev/null
+mkdir --verbose "$MAN_PATH" 2> /dev/null
+mkdir --verbose "$BIN_PATH" 2> /dev/null
 
 # update
-sudo apt-get -qq update
+sudo apt-get update
 
 # install bat
 # docs: https://github.com/sharkdp/bat
 bash ./bin/substatus 'installing bat for better file viewing'
-sudo apt-get --assume-yes -qq install bat
-ln -sf /usr/bin/batcat "$BIN_PATH/bat"
+sudo apt-get --assume-yes install bat
+ln --verbose --symbolic --force /usr/bin/batcat "$BIN_PATH/bat"
 
 # install exa
 # docs: https://the.exa.website/docs
 bash ./bin/substatus 'installing exa for better file listing'
-wget -q --output-document="$TMP_PATH/exa.zip" https://github.com/ogham/exa/releases/download/v0.10.1/exa-linux-x86_64-v0.10.1.zip
-unzip -qo "$TMP_PATH/exa.zip" -d "$TMP_PATH/exa"
-rsync -avh "$TMP_PATH/exa/bin/exa" "$BIN_PATH"
-gzip -r "$TMP_PATH/exa/man" > "$MAN_PATH/exa.gz"
-sudo cp "$TMP_PATH/exa/completions/exa.bash" /etc/bash_completion.d
+wget --output-document="$TMP_PATH/exa.zip" https://github.com/ogham/exa/releases/download/v0.10.1/exa-linux-x86_64-v0.10.1.zip
+unzip -ov "$TMP_PATH/exa.zip" -d "$TMP_PATH/exa"
+rsync --archive --human-readable --verbose "$TMP_PATH/exa/bin/exa" "$BIN_PATH"
+gzip --recursive --verbose "$TMP_PATH/exa/man" > "$MAN_PATH/exa.gz"
+sudo cp --verbose "$TMP_PATH/exa/completions/exa.bash" /etc/bash_completion.d
 
 # install LS_COLORS
 bash ./bin/substatus 'installing LS_COLORS'
 git clone https://github.com/trapd00r/LS_COLORS "$TMP_PATH/LS_COLORS"
-cp "$TMP_PATH/LS_COLORS/lscolors.sh" "$BIN_PATH"
+cp --verbose "$TMP_PATH/LS_COLORS/lscolors.sh" "$BIN_PATH"
