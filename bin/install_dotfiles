@@ -20,6 +20,6 @@
 
 bash ./bin/status 'Installing dotFiles'
 
-rsync --exclude-from="./.grimignore" -avh . "$HOME";
+rsync --exclude-from="./.grimignore" --archive --verbose --human-readable . "$HOME";
 
 source ${HOME}/.bash_profile
