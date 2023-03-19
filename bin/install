@@ -4,6 +4,6 @@ if [ ! -d "/tmp/grimoire" ]; then
 	mkdir /tmp/grimoire
 fi
 
-bash etc/message/startup
-bash bin/install_tools
-bash bin/install_dotfiles
+bash ./etc/message/startup
+bash ./bin/install_tools
+bash ./bin/install_dotfiles
