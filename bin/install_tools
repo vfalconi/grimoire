@@ -22,12 +22,17 @@ sudo apt-get --assume-yes install ${APT_INSTALLS}
 
 # install bat
 # docs: https://github.com/sharkdp/bat
+BEXTRAS_PATH="$ETC_PATH/bat-extras"
 bash ./bin/substatus 'installing bat for better file viewing'
 ln --verbose --symbolic --force /usr/bin/batcat "$BIN_PATH/bat"
-git clone https://github.com/eth-p/bat-extras "$ETC_PATH/bat-extras"
-for script in {batgrep,batman,batpipe,batwatch,batdiff,prettybat}; do
-	ln --verbose --symbolic --force "$ETC_PATH/bat-extras/src/$script.sh" "$BIN_PATH/$script"
+git clone https://github.com/eth-p/bat-extras "$BEXTRAS_PATH"
+for BSCRIPT in $BEXTRAS_PATH/src/{batgrep,batman,batpipe,batwatch,batdiff,prettybat}.sh
+do
+	BSCRIPT_NAME=$(basename "${BSCRIPT}" | cut -f 1 -d '.')
+	ln --verbose --symbolic --force "$BSCRIPT" "$BIN_PATH/$BSCRIPT_NAME"
 done;
+unset BSCRIPT;
+unset BSCRIPT_NAME;
 
 # install exa
 # docs: https://the.exa.website/docs
