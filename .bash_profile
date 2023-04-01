@@ -19,6 +19,7 @@ source "${HOME}/etc/exa_colors"
 export NVM_DIR="$HOME/.nvm"
 export PATH=$PATH:"${HOME}/bin"
 export MANPATH=$MANPATH:"${HOME}/man"
+export BAT_CONFIG_PATH="${HOME}/etc/bat.conf"
 
 # shellcheck source=/dev/null
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

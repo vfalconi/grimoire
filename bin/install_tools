@@ -43,7 +43,7 @@ bash ./bin/substatus 'installing exa for better file listing'
 wget --output-document="$TMP_PATH/exa.zip" https://github.com/ogham/exa/releases/download/v0.10.1/exa-linux-x86_64-v0.10.1.zip
 unzip -o "$TMP_PATH/exa.zip" -d "$TMP_PATH/exa"
 rsync --archive --human-readable --verbose "$TMP_PATH/exa/bin/exa" "$BIN_PATH"
-gzip --recursive --verbose "$TMP_PATH/exa/man" > "$MAN_PATH/exa.gz"
+gzip --recursive --force --verbose "$TMP_PATH/exa/man" > "$MAN_PATH/exa.gz"
 sudo rsync --verbose "$TMP_PATH/exa/completions/exa.bash" /etc/bash_completion.d
 
 # install LS_COLORS

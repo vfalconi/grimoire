@@ -19,7 +19,7 @@ Some of the files themselves have specific principles or uses:
 - `bin/`: Short scripts either to automate something or basically make a rote task easier.
 - `etc/`: Source files, special config files, junk drawer.
 - `.aliases`: Single line commands I use enough to save. The difference between an alias and a `bin/` script is simplicity--an alias should have a single command in it, and if there is a pipe or STDOUT is written somewhere or two commands are run together with `&&`, it goes in a `bin/` script.
-- `.grim-apt-list`: List of packages to install via `apt`. [ TODO: this could be used in an `uninstall` script, where it prompts to confirm whether the packages should be uninstalled along with the rest of the grimoire files. ]
+- `.grim-apt-list`: List of packages to install via `apt`. This also serves as a guide for `bin/uninstall`.
 - `.grimignore`: Files that should be in the repository but not installed in the home directory.
 
 ## Grim--come on.

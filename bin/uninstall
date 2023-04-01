@@ -1,0 +1,21 @@
+#!/bin/bash
+APT_INSTALLS="$(sed -e 's/#.*//' < .grim-apt-list | tr -s "\n" " " | awk '{$1=$1};1')"
+GRIMIGNORE="$(sed -e 's/#.*//' < .grimignore | tr -s "\n" " " | awk '{$1=$1};1')"
+
+# remove dotfiles
+bash bin/metastatus "Removing dotFiles"
+GRIMFILES="$(find -path ./.git -prune -o -type f | sed -e 's/^\.\///g' | tr -s "\n" " " | awk '{$1=$1};1')"
+for f in $GRIMFILES; do
+	if [[ ".git $GRIMIGNORE" != *"$f"* ]]; then
+		rm --force --verbose "$HOME/$f"
+	fi
+done
+
+
+# remove packages
+bash bin/metastatus "The following packages will be removed."
+bash bin/metastatus "CAUTION: Some may have been installed prior to the grimoire."
+bat .grim-apt-list --map-syntax .grim-apt-list:bash --style=grid
+read -p "Remove packages? (Y/N): " confirm && [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]] || exit 1
+bash bin/metastatus "Removing packages"
+sudo apt-get remove --assume-yes ${APT_INSTALLS}

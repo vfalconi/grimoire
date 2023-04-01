@@ -10,6 +10,7 @@ alias ll="exa --long --all --git"
 alias llm="ll --tree --level=2"
 alias rmdir="rm --recursive"
 
+alias bcat="bat --theme=GitHub"
 alias bgrep="batgrep"
 
 # For when you forget to sudo
