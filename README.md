@@ -9,9 +9,10 @@ Some general ideas behind this setup:
 - These are my tools, the things I should be able to drop on any machine and be ready to go.
 - These files should only modify the user directory, not the general environment (outside of installing via `apt`).
 - Install from source whenever possible, but use `apt` otherwise.
-- Commands in scripts should be verbose if possible, especially if it is changing or moving files.
+- If installing from source, all downloading, unzipping, etc, should be added to `bin/install_tools`, and all installation files should be somewhere in `/tmp/grimoire` so they'll be included in `bin/clean`.
+- Commands in scripts should be verbose if possible, especially if it is changing or moving files, double especially when installing packages or these dotfiles.
 - `bin/` scripts can use `sudo` but should not require `sudo` to run.
-- If a `bin/` script uses `sudo`, it must run in verbose mode
+- If a `bin/` script uses `sudo`, it must run in verbose mode.
 
 Some of the files themselves have specific principles or uses:
 
