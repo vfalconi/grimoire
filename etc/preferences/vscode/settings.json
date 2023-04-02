@@ -38,7 +38,7 @@
 		{
 			"text": "REVIEW:",
 			"color": "#F012BE",
-			"isWholeLine": false,
+			"isWholeLine": false
 		},
 		{
 			"text": "NOTE:",
@@ -47,12 +47,12 @@
 		},
 		{
 			"text": "HACK:",
-			"color": "#FF851B",
+			"color": "#FF851B"
 		},
 		{
 			"text": "TODO:",
 			"color": "#FFDC00",
-			"backgroundColor": "transparent",
+			"backgroundColor": "transparent"
 		}
 	],
 	"todohighlight.defaultStyle": {
@@ -72,5 +72,5 @@
 		"**/*.map",
 		"**/.next/**",
 		"**/settings.json"
-	],
+	]
 }

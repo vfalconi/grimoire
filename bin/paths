@@ -1,0 +1,6 @@
+#!/bin/bash
+
+TMP_PATH="/tmp/grimoire/tools"
+MAN_PATH="$HOME/man"
+BIN_PATH="$HOME/bin"
+ETC_PATH="$HOME/etc"

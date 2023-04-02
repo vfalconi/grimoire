@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source bin/paths
+
 # Get rid of that annoying message in MacOS about zsh being the default
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
@@ -11,15 +13,15 @@ done;
 unset file;
 
 # shellcheck source=/dev/null
-source "${HOME}/bin/lscolors.sh"
+source "$BIN_PATH/lscolors.sh"
 # shellcheck source=/dev/null
-source "${HOME}/etc/exa_colors"
+source "$ETC_PATH/exa_colors"
 
 # shellcheck source=/dev/null
 export NVM_DIR="$HOME/.nvm"
-export PATH=$PATH:"${HOME}/bin"
-export MANPATH=$MANPATH:"${HOME}/man"
-export BAT_CONFIG_PATH="${HOME}/etc/bat.conf"
+export PATH=$PATH:"$BIN_PATH"
+export MANPATH=$MANPATH:"$MAN_PATH"
+export BAT_CONFIG_PATH="$ETC_PATH/bat.conf"
 
 # shellcheck source=/dev/null
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

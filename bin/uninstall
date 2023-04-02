@@ -1,9 +1,11 @@
 #!/bin/bash
 
+source bin/paths
+
 REPO_NAME="$(basename "$(git remote get-url origin 2> /dev/null)")"
 
 if [[ "$REPO_NAME" != "grimoire" || "$PWD" = "$HOME" ]]; then
-	bash "$HOME/bin/status" "ERROR: Grimoire uninstall must be run in source directory"
+	bash "$BIN_PATH/status" "ERROR: Grimoire uninstall must be run in source directory"
 	exit 2;
 fi
 
@@ -38,9 +40,9 @@ fi
 
 # remove tools
 bash bin/metastatus "Removing tools"
-rm --verbose --force --recursive "$HOME/bin" 2> /dev/null
-rm --verbose --force --recursive "$HOME/etc" 2> /dev/null
-rm --verbose --force --recursive "$HOME/man" 2> /dev/null
+rm --verbose --force --recursive "$BIN_PATH" 2> /dev/null
+rm --verbose --force --recursive "$ETC_PATH" 2> /dev/null
+rm --verbose --force --recursive "$MAN_PATH" 2> /dev/null
 
 # remove tmp dir
-rm --verbose --force --recursive /tmp/grimoire 2> /dev/null
+rm --verbose --force --recursive "$TMP_PATH" 2> /dev/null
