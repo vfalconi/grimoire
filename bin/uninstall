@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # shellcheck source=/dev/null
-source bin/paths
+source bin/common
 
 REPO_NAME="$(basename "$(git remote get-url origin 2> /dev/null)")"
 
@@ -9,9 +9,6 @@ if [[ "$REPO_NAME" != "grimoire" || "$PWD" = "$HOME" ]]; then
 	bash "$BIN_PATH/status" "ERROR: Grimoire uninstall must be run in source directory"
 	exit 2;
 fi
-
-APT_INSTALLS="$(sed -e 's/#.*//' < .grim-apt-list | tr -s "\n" " " | awk '{$1=$1};1')"
-GRIMIGNORE="$(sed -e 's/#.*//' < .grimignore | tr -s "\n" " " | awk '{$1=$1};1')"
 
 # remove packages
 bash bin/metastatus "The following packages will be removed."
@@ -27,6 +24,7 @@ fi
 
 ## remove dotfiles
 bash bin/metastatus "Removing dotFiles"
+GRIMIGNORE="$(sed -e 's/#.*//' < .grimignore | tr -s "\n" " " | awk '{$1=$1};1')"
 GRIMFILES="$(find "$PWD" -path "$PWD/.git" -prune -o -type f | sed "s#$PWD#$HOME#")"
 for f in $GRIMFILES; do
 	grimFilename="${f//"$HOME/"/$(cat /dev/null)}"

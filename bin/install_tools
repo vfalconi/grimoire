@@ -3,12 +3,9 @@
 bash ./bin/status 'Installing tools...'
 
 # shellcheck source=/dev/null
-source bin/paths
+source bin/common
 
 TMP_PATH="$TMP_PATH/tools"
-
-# reads the contents of `grim-installs`, concats to a single, space-delimited line, passes to awk to trim whitespace
-APT_INSTALLS="$(sed -e 's/#.*//' < .grim-apt-list | tr -s "\n" " " | awk '{$1=$1};1')"
 
 mkdir --verbose "$TMP_PATH" 2> /dev/null
 mkdir --verbose "$MAN_PATH" 2> /dev/null
@@ -23,7 +20,7 @@ rsync --verbose --archive --human-readable --perms --owner --chmod=ug+x ./bin/ "
 bash ./bin/substatus 'installing apt packages'
 sudo apt-get update
 # shellcheck disable=SC2086
-sudo apt-get --assume-yes install ${APT_INSTALLS}
+sudo apt-get --assume-yes install "$APT_INSTALLS"
 
 # install bat
 # docs: https://github.com/sharkdp/bat

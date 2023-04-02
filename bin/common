@@ -1,0 +1,9 @@
+#!/bin/bash
+
+export TMP_PATH="/tmp/grimoire"
+export MAN_PATH="$HOME/man"
+export BIN_PATH="$HOME/bin"
+export ETC_PATH="$HOME/etc"
+
+# reads the contents of `grim-installs`, concats to a single, space-delimited line, passes to awk to trim whitespace
+export APT_INSTALLS="$(sed -e 's/#.*//' < .grim-apt-list | tr -s "\n" " " | awk '{$1=$1};1')"
