@@ -29,6 +29,7 @@ install:
 uninstall:
 	bash ./bin/metastatus "Running uninstaller"
 	bash ./bin/uninstall
+	@$(MAKE) -f $(SELF) clean
 	@echo "Grimoire has been uninstalled"
 
 clean:

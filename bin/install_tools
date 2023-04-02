@@ -2,7 +2,10 @@
 
 bash ./bin/status 'Installing tools...'
 
+# shellcheck source=/dev/null
 source bin/paths
+
+TMP_PATH="$TMP_PATH/tools"
 
 # reads the contents of `grim-installs`, concats to a single, space-delimited line, passes to awk to trim whitespace
 APT_INSTALLS="$(sed -e 's/#.*//' < .grim-apt-list | tr -s "\n" " " | awk '{$1=$1};1')"

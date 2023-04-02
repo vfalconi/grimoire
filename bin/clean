@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# shellcheck source=/dev/null
+source bin/paths
+
 bash ./bin/status 'Cleaning up tmp files'
 
-rm --verbose --recursive --force /tmp/grimoire/*
+rm --verbose --recursive --force "$TMP_PATH/*"

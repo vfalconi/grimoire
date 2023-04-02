@@ -1,6 +1,9 @@
 #!/bin/bash
 
-mkdir --verbose /tmp/grimoire 2> /dev/null
+# shellcheck source=/dev/null
+source bin/paths
+
+mkdir --verbose "$TMP_PATH" 2> /dev/null
 
 bash ./etc/message/startup
 bash ./bin/install_tools
