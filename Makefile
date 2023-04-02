@@ -26,6 +26,11 @@ install:
 	@$(MAKE) -f $(SELF) clean
 	bash ./bin/metastatus "Grimoire install complete"
 
+uninstall:
+	bash ./bin/metastatus "Running uninstaller"
+	bash ./bin/uninstall
+	@echo "Grimoire has been uninstalled"
+
 clean:
 	bash ./bin/metastatus "Running cleaner"
 	bash ./bin/clean

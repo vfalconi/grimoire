@@ -5,3 +5,4 @@ README.md
 bin/install
 bin/install_dotfiles
 bin/install_tools
+bin/uninstall

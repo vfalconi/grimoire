@@ -2,6 +2,25 @@
 
 These are my dot files. They suit my needs. They are a part of my overall homelab setup, but not specific to it.
 
+## Installation
+
+This installation is destructive. No backups are made. Anything that might be overwritten, will be, and will not be restorable. That said...
+
+Clone the repository, run the installer:
+
+```bash
+git clone https://github.com/vfalconi/grimoire
+cd grimoire
+make
+```
+
+To uninstall, run the uninstaller and follow any prompts:
+
+```bash
+cd grimoire
+make uninstall
+```
+
 ## Philosophy
 
 Some general ideas behind this setup:

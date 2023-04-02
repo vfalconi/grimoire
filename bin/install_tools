@@ -26,16 +26,16 @@ sudo apt-get --assume-yes install ${APT_INSTALLS}
 
 # install bat
 # docs: https://github.com/sharkdp/bat
-BEXTRAS_PATH="$ETC_PATH/bat-extras"
 bash ./bin/substatus 'installing bat for better file viewing'
 ln --verbose --symbolic --force /usr/bin/batcat "$BIN_PATH/bat"
-git clone https://github.com/eth-p/bat-extras "$BEXTRAS_PATH"
-ln --verbose --symbolic --force "$BEXTRAS_PATH/src/batgrep.sh" "$BIN_PATH/batgrep"
-ln --verbose --symbolic --force "$BEXTRAS_PATH/src/batman.sh" "$BIN_PATH/batman"
-ln --verbose --symbolic --force "$BEXTRAS_PATH/src/batpipe.sh" "$BIN_PATH/batpipe"
-ln --verbose --symbolic --force "$BEXTRAS_PATH/src/batwatch.sh" "$BIN_PATH/batwatch"
-ln --verbose --symbolic --force "$BEXTRAS_PATH/src/batdiff.sh" "$BIN_PATH/batdiff"
-ln --verbose --symbolic --force "$BEXTRAS_PATH/src/prettybat.sh" "$BIN_PATH/prettybat"
+git clone https://github.com/eth-p/bat-extras "$TMP_PATH/bat-extras"
+mv --verbose --force "$TMP_PATH/bat-extras" "$ETC_PATH"
+ln --verbose --symbolic --force "$ETC_PATH/bat-extras/src/batgrep.sh" "$BIN_PATH/batgrep"
+ln --verbose --symbolic --force "$ETC_PATH/bat-extras/src/batman.sh" "$BIN_PATH/batman"
+ln --verbose --symbolic --force "$ETC_PATH/bat-extras/src/batpipe.sh" "$BIN_PATH/batpipe"
+ln --verbose --symbolic --force "$ETC_PATH/bat-extras/src/batwatch.sh" "$BIN_PATH/batwatch"
+ln --verbose --symbolic --force "$ETC_PATH/bat-extras/src/batdiff.sh" "$BIN_PATH/batdiff"
+ln --verbose --symbolic --force "$ETC_PATH/bat-extras/src/prettybat.sh" "$BIN_PATH/prettybat"
 
 # install exa
 # docs: https://the.exa.website/docs

@@ -1,21 +1,46 @@
 #!/bin/bash
+
+REPO_NAME="$(basename "$(git remote get-url origin 2> /dev/null)")"
+
+if [[ "$REPO_NAME" != "grimoire" || "$PWD" = "$HOME" ]]; then
+	bash "$HOME/bin/status" "ERROR: Grimoire uninstall must be run in source directory"
+	exit 2;
+fi
+
 APT_INSTALLS="$(sed -e 's/#.*//' < .grim-apt-list | tr -s "\n" " " | awk '{$1=$1};1')"
 GRIMIGNORE="$(sed -e 's/#.*//' < .grimignore | tr -s "\n" " " | awk '{$1=$1};1')"
 
-# remove dotfiles
+## remove dotfiles
 bash bin/metastatus "Removing dotFiles"
-GRIMFILES="$(find -path ./.git -prune -o -type f | sed -e 's/^\.\///g' | tr -s "\n" " " | awk '{$1=$1};1')"
+GRIMFILES="$(find "$PWD" -depth 1 -path "$PWD/.git" -prune -o -type f | sed "s#$PWD#$HOME#")"
 for f in $GRIMFILES; do
-	if [[ ".git $GRIMIGNORE" != *"$f"* ]]; then
-		rm --force --verbose "$HOME/$f"
+	grimFilename="$(echo "$f" | sed "s#$HOME/#$(cat /dev/null)#")"
+	if [[ ".git $GRIMIGNORE" != *"$grimFilename"* ]]; then
+		rm --force --verbose "$f" 2> /dev/null
 	fi
 done
+unset grimFilename
+unset f
 
+bash bin/metastatus "Removing tools"
 
 # remove packages
 bash bin/metastatus "The following packages will be removed."
 bash bin/metastatus "CAUTION: Some may have been installed prior to the grimoire."
-bat .grim-apt-list --map-syntax .grim-apt-list:bash --style=grid
-read -p "Remove packages? (Y/N): " confirm && [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]] || exit 1
-bash bin/metastatus "Removing packages"
-sudo apt-get remove --assume-yes ${APT_INSTALLS}
+bat "$HOME/.grim-apt-list" --style=grid
+read -p "Remove packages? (Y/N): " confirm
+if [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]]; then
+	bash bin/metastatus "Removing packages"
+	sudo apt-get remove --assume-yes ${APT_INSTALLS}
+else
+	bash bin/metastatus "Skipping packages"
+fi
+
+# remove tools
+bash bin/metastatus "Removing tools"
+rm --verbose --force --recursive "$HOME/bin" 2> /dev/null
+rm --verbose --force --recursive "$HOME/etc" 2> /dev/null
+rm --verbose --force --recursive "$HOME/man" 2> /dev/null
+
+# remove tmp dir
+rm --verbose --force --recursive /tmp/grimoire 2> /dev/null
