@@ -13,7 +13,7 @@ mkdir --verbose "$BIN_PATH" 2> /dev/null
 mkdir --verbose "$ETC_PATH" 2> /dev/null
 
 # grimoire/bin
-rsync --verbose --archive --human-readable --perms --owner --chmod=ug+x ./bin/ "$HOME/bin"
+rsync --verbose --archive --human-readable --perms --owner --chmod=ug+x ./bin/ "$BIN_PATH"
 
 # apt packages
 # see .grim-apt-list for details
