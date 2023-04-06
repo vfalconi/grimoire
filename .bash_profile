@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source bin/paths
+source bin/common
 
 # Get rid of that annoying message in MacOS about zsh being the default
 export BASH_SILENCE_DEPRECATION_WARNING=1
