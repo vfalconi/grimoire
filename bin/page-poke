@@ -1,0 +1,20 @@
+#!/bin/bash
+
+URL="$1"
+ENV=${2:-"$(hostname)"}
+TIMESTAMP=$(date +"%Y-%m-%d--%s")
+FILEMARK="$TIMESTAMP--$ENV--$URL"
+
+# Ask for homepage
+
+# 1. Do not follow redirects
+curl --silent --output /dev/null --show-error --verbose "$URL" > "$FILEMARK--ignore-redirects--headers" 2>&1 &
+curl --silent --show-error --verbose "$URL" > "$FILEMARK--ignore-redirects--body" 2>&1 &
+
+# 2. Follow redirects
+curl --silent --output /dev/null --show-error --location --verbose "$URL" > "$FILEMARK--follow-redirects--headers" 2>&1 &
+curl --silent --show-error --location --verbose "$URL" > "$FILEMARK--follow-redirects--body" 2>&1 &
+
+# Show the output files
+echo "page-poke results:"
+find -type f -name "$FILEMARK*"
