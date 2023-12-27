@@ -9,6 +9,7 @@ alias -- -="cd -"
 alias ll="exa --long --all --git"
 alias llm="ll --tree --level=2"
 alias rmdir="rm --recursive"
+alias cls="clear"
 
 alias bcat="bat"
 alias bgrep="batgrep"
