@@ -7,4 +7,5 @@ mkdir --verbose "$TMP_PATH" 2> /dev/null
 
 bash ./etc/message/startup
 bash ./bin/install_tools
+bash ./bin/install_fonts
 bash ./bin/install_dotfiles

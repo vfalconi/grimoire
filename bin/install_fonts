@@ -1,0 +1,24 @@
+#!/bin/bash
+
+bash ./bin/status 'Installing tools...'
+
+# shellcheck source=/dev/null
+source bin/common
+
+TMP_FONTS="$TMP_PATH/fonts"
+COMMIT_MONO_VERSION="1.142"
+MONASPACE_VERSION="1.000"
+
+mkdir --verbose "$TMP_FONTS" 2> /dev/null
+
+# install CommitMono (terminal font)
+wget --output-document="$TMP_PATH/CommitMono-$COMMIT_MONO_VERSION.zip" "https://github.com/eigilnikolajsen/commit-mono/releases/download/v$COMMIT_MONO_VERSION/CommitMono-$COMMIT_MONO_VERSION.zip"
+unzip -o "$TMP_PATH/CommitMono-$COMMIT_MONO_VERSION.zip" -d "$TMP_FONTS"
+if [ ! -d "$HOME/.fonts/CommitMono" ]; then mkdir --verbose "$HOME/.fonts/CommitMono" 2> /dev/null; fi
+rsync --archive --human-readable --verbose --include="*.otf" --exclude="**.*" "$TMP_FONTS/CommitMono-$COMMIT_MONO_VERSION/" "$HOME/.fonts/CommitMono"
+
+# install monaspace fonts (code editor)
+wget --output-document="$TMP_PATH/monaspace-v$MONASPACE_VERSION.zip" "https://github.com/githubnext/monaspace/releases/download/v$MONASPACE_VERSION/monaspace-v$MONASPACE_VERSION.zip"
+unzip -o "$TMP_PATH/monaspace-v$MONASPACE_VERSION.zip" -d "$TMP_FONTS"
+if [ ! -d "$HOME/.fonts/monaspace" ]; then mkdir --verbose "$HOME/.fonts/monaspace" 2> /dev/null; fi
+rsync --archive --human-readable --verbose --include="*.otf" --exclude="**.*" "$TMP_FONTS/monaspace-v$MONASPACE_VERSION/fonts/otf/" "$HOME/.fonts/monaspace"

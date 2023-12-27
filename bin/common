@@ -1,6 +1,7 @@
 #!/bin/bash
 
-export TMP_PATH="/tmp/grimoire"
+export TMP_PATH="$HOME/tmp/grimoire"
 export MAN_PATH="$HOME/man"
 export BIN_PATH="$HOME/bin"
 export ETC_PATH="$HOME/etc"
+export FONTS_PATH="$HOME/.fonts"
