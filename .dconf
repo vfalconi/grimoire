@@ -1,0 +1,19 @@
+[com/gexperts/Tilix]
+enable-wide-handle=false
+sidebar-on-right=false
+tab-position='top'
+use-tabs=false
+warn-vte-config-issue=false
+window-style='normal'
+
+[com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d]
+cell-height-scale=1.5
+cell-width-scale=1.0
+cursor-blink-mode='on'
+cursor-shape='ibeam'
+default-size-columns=80
+draw-margin=80
+font='CommitMono 10'
+terminal-bell='sound'
+use-system-font=false
+visible-name='Default'
