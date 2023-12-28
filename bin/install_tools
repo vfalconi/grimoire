@@ -27,7 +27,7 @@ sudo apt-get --assume-yes install bat ripgrep shellcheck unzip tilix
 bash ./bin/substatus 'installing bat for better file viewing'
 ln --verbose --symbolic --force /usr/bin/batcat "$BIN_PATH/bat"
 git clone https://github.com/eth-p/bat-extras "$TMP_PATH/bat-extras"
-mv --verbose --force "$TMP_PATH/bat-extras" "$ETC_PATH"
+mv --verbose --force "$TMP_PATH/bat-extras" "$ETC_PATH" 2> /dev/null
 ln --verbose --symbolic --force "$ETC_PATH/bat-extras/src/batgrep.sh" "$BIN_PATH/batgrep"
 ln --verbose --symbolic --force "$ETC_PATH/bat-extras/src/batman.sh" "$BIN_PATH/batman"
 ln --verbose --symbolic --force "$ETC_PATH/bat-extras/src/batpipe.sh" "$BIN_PATH/batpipe"
@@ -48,6 +48,3 @@ sudo rsync --verbose "$TMP_PATH/exa/completions/exa.bash" /etc/bash_completion.d
 bash ./bin/substatus 'installing LS_COLORS'
 git clone https://github.com/trapd00r/LS_COLORS "$TMP_PATH/LS_COLORS"
 rsync --archive --human-readable --verbose "$TMP_PATH/LS_COLORS/lscolors.sh" "$BIN_PATH"
-
-# configure Tilix
-dconf load / < .dconf

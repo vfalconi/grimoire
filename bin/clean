@@ -5,4 +5,4 @@ source bin/common
 
 bash ./bin/status 'Cleaning up tmp files'
 
-rm --verbose --recursive --force "$TMP_PATH/*"
+rm --verbose --recursive --force "$TMP_PATH"
