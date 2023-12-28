@@ -1,0 +1,3 @@
+#!/bin/bash
+
+grep "$@" $HOME/.bash_history | bat --theme="DarkNeon"

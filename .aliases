@@ -20,3 +20,11 @@ alias dammit='sudo $(history -p !!)'
 
 # apply craft config via CLI to avoid YAML annoyances
 alias apply_craft_config='php craft project-config/apply'
+
+alias update="sudo apt update && sudo apt dist-upgrade -y && sudo apt autoremove -y && sudo apt autoclean -y"
+
+alias cp="cp -i"
+alias mv="mv -i"
+alias rm="rm -i"
+
+alias nano="nano -w"

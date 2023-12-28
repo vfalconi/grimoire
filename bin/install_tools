@@ -20,7 +20,7 @@ rsync --verbose --archive --human-readable --perms --owner --chmod=ug+x ./bin/ "
 bash ./bin/substatus 'installing apt packages'
 sudo apt-get update
 # shellcheck disable=SC2086
-sudo apt-get --assume-yes install bat ripgrep shellcheck unzip tilix
+sudo apt-get --assume-yes install bat ripgrep shellcheck unzip tilix bash-completion
 
 # install bat
 # docs: https://github.com/sharkdp/bat

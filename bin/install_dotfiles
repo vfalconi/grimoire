@@ -22,5 +22,8 @@ bash ./bin/status 'Installing dotFiles'
 
 rsync --exclude-from=".grimignore" --exclude ".git" --exclude "bin" --archive --verbose --human-readable . "$HOME";
 
+# bind inputrc for autocomplete
+bind -f "$HOME/.inputrc"
+
 # shellcheck source=/dev/null
 source "$HOME/.bash_profile"

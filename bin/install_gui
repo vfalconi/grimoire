@@ -15,8 +15,8 @@ if [[ "${response,,}" = "y" ]]; then
   if [[ -f "/usr/bin/zsh" ]]; then
 		bash ./bin/substatus 'Installing and configuring Tilix'
     # update and install tilix
-		sudo apt update && \
-		sudo apt install tilix
+		sudo apt-get update && \
+		sudo apt-get install tilix
 		# load Tilix configure
 		dconf load / < .dconf
 

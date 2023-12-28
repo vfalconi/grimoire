@@ -12,6 +12,10 @@ for file in ~/.{functions,aliases,bash_prompt}; do
 done;
 unset file;
 
+if [ -f /etc/bash_completion ]; then
+ . /etc/bash_completion
+fi
+
 # shellcheck source=/dev/null
 source "$BIN_PATH/lscolors.sh"
 # shellcheck source=/dev/null
